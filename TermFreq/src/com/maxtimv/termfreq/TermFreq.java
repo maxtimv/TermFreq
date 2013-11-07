@@ -7,8 +7,9 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * @author Maxim Timofeev
@@ -50,15 +51,17 @@ public class TermFreq {
 
 		// Load the file and extract terms
 		String text = loadFile(fileName);
-		Term[] terms = extractor.extract(text);
+		Set<Term> terms = extractor.extract(text);
 
 		// Sort the terms if asked
 		if (comparator != null) {
-			Arrays.sort(terms, comparator);
+			Set<Term> termsOrdered = new TreeSet<Term>(comparator);
+			termsOrdered.addAll(terms);
+			terms = termsOrdered;
 		}
 
 		// Print results
-		System.out.println("Total terms: " + terms.length);
+		System.out.println("Total terms: " + terms.size());
 		for (Term t : terms) {
 			System.out.println(t);
 		}

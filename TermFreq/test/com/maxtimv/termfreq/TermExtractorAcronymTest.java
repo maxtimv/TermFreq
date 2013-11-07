@@ -48,6 +48,6 @@ public class TermExtractorAcronymTest {
 		System.out.println("* TermExtractorAcronymTest: testExtract()");
 		assertArrayEquals(
 				new Term[] { new Term("cat", 2), new Term("CAT", 1) },
-				new TermExtractorAcronym().extract("  cat  CAT   Cat "));
+				new TermExtractorAcronym().extract("  cat  CAT   Cat ").toArray(new Term[0]));
 	}
 }

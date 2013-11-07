@@ -3,6 +3,8 @@
  */
 package com.maxtimv.termfreq;
 
+import java.util.Set;
+
 /**
  * Any TermExtractor class has to implement this interface.
  * 
@@ -16,7 +18,7 @@ public interface ITermExtractor {
 	 * 
 	 * @param text
 	 *            the text to extract terms from
-	 * @return an array of Term objects
+	 * @return a {@link Set} of {@link Term} objects
 	 */
-	public Term[] extract(String text);
+	public Set<Term> extract(String text);
 }

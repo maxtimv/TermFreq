@@ -3,14 +3,15 @@
  */
 package com.maxtimv.termfreq;
 
-import java.util.Collection;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * This implementation of ITermExtractor interface extracts terms from the input
- * text, normalizes them, and returns an array of Term objects in order they
- * appeared in the text.
+ * text, normalizes them, and returns a {@link Set} of {@link Term} objects in
+ * order they appeared in the text.
  * 
  * @author Maxim Timofeev
  * 
@@ -19,19 +20,19 @@ public class TermExtractor implements ITermExtractor {
 
 	/**
 	 * Extracts terms from the text. Each term is normalized and is provided
-	 * with its frequency. This implementation returns an array of Term objects
-	 * in order they appeared in the text.
+	 * with its frequency. This implementation returns a {@link Set} of
+	 * {@link Term} objects in order they appeared in the text.
 	 * 
 	 * @param text
 	 *            the text to extract terms from
-	 * @return an array of Term objects
+	 * @return a {@link Set} of {@link Term} objects
 	 */
 	@Override
-	public Term[] extract(String text) {
+	public Set<Term> extract(String text) {
 		// Tokenize the input text
 		final String tokens[] = text.split("[^A-Za-z0-9\\.']");
 		// Use Map to collect the terms
-		Map<String, Term> map = new LinkedHashMap<String, Term>(tokens.length);
+		Map<String, Term> map = new LinkedHashMap<>(tokens.length);
 		for (String token : tokens) {
 			// Ignore empty tokens
 			if (token.length() == 0) {
@@ -60,9 +61,8 @@ public class TermExtractor implements ITermExtractor {
 				term.incFrequency();
 			}
 		}
-		// Return an array of terms
-		Collection<Term> terms = map.values();
-		return terms.toArray(new Term[0]);
+		// Return a set of terms
+		return new LinkedHashSet<Term>(map.values());
 	}
 
 	/**

@@ -4,8 +4,8 @@
 package com.maxtimv.termfreq;
 
 /**
- * This class extends functionality of TermExtractor class. It overrides
- * implementation of normalize function to preserve terms that appear to be
+ * This class extends functionality of {@link TermExtractor} class. It overrides
+ * implementation of normalize method to preserve terms that appear to be
  * acronyms.
  * 
  * @author Maxim Timofeev
