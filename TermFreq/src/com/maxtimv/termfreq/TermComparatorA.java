@@ -6,8 +6,8 @@ package com.maxtimv.termfreq;
 import java.util.Comparator;
 
 /**
- * A Comparator that orders <code>Term</code> objects by descending frequency
- * with a secondary sort of ascending alphabetical term.
+ * A Comparator that orders {@link Term} objects by descending frequency with a
+ * secondary sort of ascending alphabetical term.
  * 
  * @author Maxim Timofeev
  * 
@@ -15,7 +15,7 @@ import java.util.Comparator;
 public class TermComparatorA implements Comparator<Term> {
 
 	/**
-	 * Compares two <code>Term</code> objects for order.
+	 * Compares two {@link Term} objects for order.
 	 */
 	@Override
 	public int compare(Term t1, Term t2) {
@@ -24,7 +24,7 @@ public class TermComparatorA implements Comparator<Term> {
 		// The same frequencies?
 		if (res == 0) {
 			// OK, then use ascending order on term text
-			res = t1.getText().compareToIgnoreCase(t2.getText());
+			res = t1.getText().compareTo(t2.getText());
 		}
 		return res;
 	}
