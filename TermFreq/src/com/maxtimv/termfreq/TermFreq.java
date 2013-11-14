@@ -32,12 +32,12 @@ public class TermFreq {
 			if ("-acronym".equalsIgnoreCase(arg)
 					|| "-acr".equalsIgnoreCase(arg)) {
 				extractor = new TermExtractorAcronym();
-			} else if ("-sorta".equalsIgnoreCase(arg)
-					|| "-sa".equalsIgnoreCase(arg)) {
-				comparator = new TermComparatorA();
-			} else if ("-sortb".equalsIgnoreCase(arg)
-					|| "-sb".equalsIgnoreCase(arg)) {
-				comparator = new TermComparatorB();
+			} else if ("-sortf".equalsIgnoreCase(arg)
+					|| "-sf".equalsIgnoreCase(arg)) {
+				comparator = new OrderTermsByFrequencyComparator();
+			} else if ("-sortt".equalsIgnoreCase(arg)
+					|| "-st".equalsIgnoreCase(arg)) {
+				comparator = new OrderTermsByTextComparator();
 			} else {
 				fileName = arg;
 			}
@@ -92,7 +92,7 @@ public class TermFreq {
 		System.out.println();
 		System.out.println("where options include:");
 		System.out.println("   -acronym | -acr    preserves acronyms");
-		System.out.println("   -sorta | -sa       uses sort method A");
-		System.out.println("   -sortb | -sb       uses sort method B");
+		System.out.println("   -sortf | -sf       uses sort by frequency");
+		System.out.println("   -sortt | -st       uses sort by text");
 	}
 }

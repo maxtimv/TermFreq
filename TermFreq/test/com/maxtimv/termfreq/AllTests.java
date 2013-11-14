@@ -9,8 +9,9 @@ import org.junit.runners.Suite.SuiteClasses;
  * 
  */
 @RunWith(Suite.class)
-@SuiteClasses({ TermComparatorATest.class, TermComparatorBTest.class,
-		TermExtractorAcronymTest.class, TermExtractorTest.class })
+@SuiteClasses({ OrderTermsByFrequencyComparatorTest.class,
+		OrderTermsByTextComparatorTest.class, TermExtractorAcronymTest.class,
+		TermExtractorTest.class })
 public class AllTests {
 
 }

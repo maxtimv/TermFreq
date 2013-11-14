@@ -12,7 +12,7 @@ import java.util.Comparator;
  * @author Maxim Timofeev
  * 
  */
-public class TermComparatorA implements Comparator<Term> {
+public class OrderTermsByFrequencyComparator implements Comparator<Term> {
 
 	/**
 	 * Compares two {@link Term} objects for order.

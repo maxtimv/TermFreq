@@ -11,7 +11,7 @@ import java.util.Comparator;
  * @author Maxim Timofeev
  * 
  */
-public class TermComparatorB implements Comparator<Term> {
+public class OrderTermsByTextComparator implements Comparator<Term> {
 
 	/**
 	 * Compares two {@link Term} objects for order.
